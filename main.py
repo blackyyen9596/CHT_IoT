@@ -13,12 +13,16 @@ def main():
     PORT="com4"
     # 溶氧量
     do = mod(PORT, [3, 4, 0, 2])
+    time.sleep(sleeptime(0, 0, 1))
     # 酸鹼值
     ph = mod(PORT, [1, 4, 0, 2])
+    time.sleep(sleeptime(0, 0, 1))
     # 氧化還原電位差
     opr = mod(PORT, [4, 4, 6, 2])
+    time.sleep(sleeptime(0, 0, 1))
     # 鹽度
     con = mod(PORT, [2, 4, 0, 2])
+    time.sleep(sleeptime(0, 0, 1))
     while():
         data = json.dumps([{"id": 1, "value": do},
                         {"id": 2, "value": ph},
