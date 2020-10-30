@@ -1,6 +1,3 @@
-# -*- coding: utf_8 -*-
-
-
 import serial
 #import modbus_tk
 #import modbus_tk.defines as cst
