@@ -13,21 +13,17 @@ def main():
     PORT="com4"
     # 溶氧量
     do = mod(PORT, [3, 4, 0, 2])
-    do = do.split()
     # 酸鹼值
     ph = mod(PORT, [1, 4, 0, 2])
-    ph = ph.split()
     # 氧化還原電位差
     opr = mod(PORT, [4, 4, 6, 2])
-    opr = opr.split()
     # 鹽度
     con = mod(PORT, [2, 4, 0, 2])
-    con = con.split()
     while():
-        data = json.dumps([{"id": 1, "value": [do[0]]},
-                        {"id": 2, "value": [ph[0]]},
-                        {"id": 3, "value": [opr[0]]},
-                        {"id": 4, "value": [con[0]]}])
+        data = json.dumps([{"id": 1, "value": do},
+                        {"id": 2, "value": ph},
+                        {"id": 3, "value": opr},
+                        {"id": 4, "value": con)
         requests.post(URL, data=data, headers=headers)
         time.sleep(second)
     if 0xFF == ord('q'):

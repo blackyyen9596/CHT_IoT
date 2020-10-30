@@ -45,7 +45,7 @@ def mod(PORT, order=[]):
     data = int(red[0])
     data = data/(pow(10,decimal))
     unit = unit_dic[unit]
-    print(data,unit)
+    return data
 
 
 if __name__ == "__main__":    
