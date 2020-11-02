@@ -18,21 +18,24 @@ def main():
     # 設定是否上傳至 iot 大平台
     iot = False
     # 設定上傳延遲時間
-    second = sleeptime(0, 0, 5)
+    second = sleeptime(0, 0, 1)
     # 設定 usb 輸入埠
     PORT = "com5"
 
     day = getTime('day')
     switch = True
-
+    i = 0
     while True:
+        i += 1
+        if i == 10:
+            break
         if day == getTime('day'):
-            # 開啟輸出的 CSV 檔案
-            with open('./csv/' + getTime('day') + '.csv', 'w', newline='') as csvfile:
-                if switch:
-                    print('儲存檔名為：', str(getTime('day') + '.csv'))
+            if switch:
+                # 開啟輸出的 CSV 檔案
+                with open('./csv/' + getTime('day') + '.csv', 'w', newline='') as csvfile:
                     # 建立 CSV 檔寫入器
                     writer = csv.writer(csvfile)
+                    print('儲存檔名為：', str(getTime('day') + '.csv'))
                     # 寫入一列資料
                     writer.writerow(['date', 'Dissolved_oxygen', 'pH_value', 'oxidation-reduction_potential', 'salinity', 'temperature'])
                     # 獲取感測器之值
@@ -61,7 +64,11 @@ def main():
                     switch = False
                     print('執行完畢時間：', getTime())
                     time.sleep(second)
-                else :
+            else :
+                # 開啟輸出的 CSV 檔案
+                with open('./csv/' + getTime('day') + '.csv', 'a', newline='') as csvfile:
+                    # 建立 CSV 檔寫入器
+                    writer = csv.writer(csvfile)
                     # 獲取感測器之值
                     # 溶氧量
                     do = mod(PORT, [3, 4, 0, 2])
