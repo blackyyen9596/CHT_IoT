@@ -51,13 +51,17 @@ def main():
                     # 鹽度
                     con = mod(PORT, [2, 4, 0, 2])
                     time.sleep(sleeptime(0, 0, 1))
+                    # 溫度
+                    temp = mod(PORT, [1, 4, 8, 2])
+                    time.sleep(sleeptime(0, 0, 1))
                     # 寫入另外幾列資料
                     writer.writerow([getTime('time'), do, ph, opr, con])
                     # 將數值寫成 josn 檔案
                     data = json.dumps([{"id": 1, "value": [do]},
                                     {"id": 2, "value": [ph]},
                                     {"id": 3, "value": [opr]},
-                                    {"id": 4, "value": [con]}])
+                                    {"id": 4, "value": [con]},
+                                    {"id": 5, "value": [temp]}])
                     # 將數值即時上傳至大平台
                     if iot:
                         requests.post(URL, data=data, headers=headers)
@@ -82,13 +86,17 @@ def main():
                     # 鹽度
                     con = mod(PORT, [2, 4, 0, 2])
                     time.sleep(sleeptime(0, 0, 1))
+                    # 溫度
+                    temp = mod(PORT, [1, 4, 8, 2])
+                    time.sleep(sleeptime(0, 0, 1))
                     # 寫入另外幾列資料
                     writer.writerow([getTime('time'), do, ph, opr, con])
                     # 將數值寫成 josn 檔案
                     data = json.dumps([{"id": 1, "value": [do]},
                                     {"id": 2, "value": [ph]},
                                     {"id": 3, "value": [opr]},
-                                    {"id": 4, "value": [con]}])
+                                    {"id": 4, "value": [con]},
+                                    {"id": 5, "value": [temp]}])
                     # 將數值即時上傳至大平台
                     if iot:
                         requests.post(URL, data=data, headers=headers)
