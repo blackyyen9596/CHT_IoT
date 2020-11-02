@@ -55,7 +55,7 @@ def main():
                     temp = mod(PORT, [1, 4, 8, 2])
                     time.sleep(sleeptime(0, 0, 1))
                     # 寫入另外幾列資料
-                    writer.writerow([getTime('time'), do, ph, opr, con])
+                    writer.writerow([getTime('time'), do, ph, opr, con, temp])
                     # 將數值寫成 josn 檔案
                     data = json.dumps([{"id": 1, "value": [do]},
                                     {"id": 2, "value": [ph]},
@@ -90,7 +90,7 @@ def main():
                     temp = mod(PORT, [1, 4, 8, 2])
                     time.sleep(sleeptime(0, 0, 1))
                     # 寫入另外幾列資料
-                    writer.writerow([getTime('time'), do, ph, opr, con])
+                    writer.writerow([getTime('time'), do, ph, opr, con, temp])
                     # 將數值寫成 josn 檔案
                     data = json.dumps([{"id": 1, "value": [do]},
                                     {"id": 2, "value": [ph]},
